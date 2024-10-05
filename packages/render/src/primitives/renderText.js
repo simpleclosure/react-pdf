@@ -94,7 +94,13 @@ const renderRun = (ctx, run, options) => {
 
     try {
       if (run.attributes.script) {
-        ctx.addNamedDestination(run.attributes.script, 'XYZ', ctx._ctm[4], ctx._ctm[5], ctx._pageBufferStart + 1);
+        ctx.addNamedDestination(
+          run.attributes.script,
+          'XYZ',
+          ctx._ctm[4],
+          ctx._ctm[5],
+          ctx._pageBufferStart,
+        );
       }
       renderGlyphs(ctx, run.glyphs, run.positions, 0, 0);
     } catch (error) {
