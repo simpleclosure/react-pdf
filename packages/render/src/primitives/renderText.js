@@ -99,7 +99,7 @@ const renderRun = (ctx, run, options) => {
           'XYZ',
           ctx._ctm[4],
           ctx._ctm[5],
-          ctx._pageBufferStart,
+          null,
         );
       }
       renderGlyphs(ctx, run.glyphs, run.positions, 0, 0);
