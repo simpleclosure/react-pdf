@@ -93,6 +93,9 @@ const renderRun = (ctx, run, options) => {
     ctx.font(typeof font.name === 'string' ? font.name : font, fontSize);
 
     try {
+      if (run.attributes.script) {
+        ctx.addNamedDestination(run.attributes.script, 'XYZ', ctx._ctm[4], ctx._ctm[5], ctx._pageBufferStart + 1);
+      }
       renderGlyphs(ctx, run.glyphs, run.positions, 0, 0);
     } catch (error) {
       console.log(error);

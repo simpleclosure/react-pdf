@@ -101,9 +101,10 @@ const getFragments = (fontStore, instance, parentLink, level = 0) => {
         },
       });
     } else if (isTextInstance(child)) {
+      const script = instance.props && instance.props.id
       fragments.push({
         string: transformText(child.value, textTransform),
-        attributes,
+        attributes: {...attributes, script },
       });
     } else if (child) {
       fragments.push(
